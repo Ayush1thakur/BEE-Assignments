@@ -7,8 +7,33 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    
-    <div class="loader"></div>
+    <div class="loader">
+        <div class="pac-man"></div>
+        <div class="point p1"></div>
+        <div class="point p2"></div>
+    </div>
+
     <h1><%= message %></h1>
+
+    <!-- To-Do List Section -->
+    <div class="todo-container">
+        <h2>To-Do List</h2>
+        <form action="/todo/add" method="POST">
+            <input type="text" name="task" placeholder="Enter a task" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <ul>
+            <% tasks.forEach(function(task) { %>
+                <li>
+                    <span><%= task %></span>
+                    <form action="/todo/delete" method="POST" style="display:inline;">
+                        <input type="hidden" name="taskToDelete" value="<%= task %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
 </body>
 </html>
