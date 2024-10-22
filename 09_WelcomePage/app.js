@@ -38,6 +38,15 @@ app.post('/todo/delete', (req, res) => {
     res.redirect('/');
 });
 
+// Route for products page
+app.get('/products', (req, res) => {
+    const data = {
+        title: "Products",
+        message: "Welcome to the Products Page!"
+    };
+    res.render('products', data); // Ensure you create a products.ejs file in the views folder
+});
+
 // Start the server
 const PORT = 1000;
 app.listen(PORT, () => {
