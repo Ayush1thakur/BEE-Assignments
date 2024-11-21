@@ -3,12 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students List</title>
-    <link rel="stylesheet" href="/public/main.css"> <!-- Updated link -->
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/studentList.css">
+    <link rel="stylesheet" href="/studentList.css">
+
 </head>
 <body>
-    <h1>Students List</h1>
+
+    <h1><%= title %></h1>
     <a href="/">Go Home</a>
+
+    <!-- Filter Form -->
+    <form action="/students/filter" method="GET">
+        <label for="course">Filter by Course:</label>
+        <select name="courseId" id="course">
+            <option value="">Select Course</option>
+            <% courses.forEach(course => { %>
+                <option value="<%= course._id %>"><%= course.name %></option>
+            <% }) %>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+
+    <!-- Display Students List -->
     <table border="1">
         <tr>
             <th>Name</th>
@@ -31,8 +48,8 @@
                 </td>
                 <td>
                     <a href="/students/edit/<%= student._id %>">Edit</a>
-                    <form action="/students/delete/<%= student._id %>" method="POST" style="display:inline;">
-                        <button type="submit">Delete</button>
+                    <form action="/students/delete/<%= student._id %>" method="POST" style="display:inline; margin-left: 30px;">
+                        <button type="submit" style="width: 80px;">Delete</button>
                     </form>
                 </td>
             </tr>

@@ -61,13 +61,24 @@
             </a>
         </div>
 
-        <a href="/contact" class="cta" style="text-decoration: none; margin-top: 30px; display: inline-flex; align-items: center;">
+        <a href="/contact" class="cta"
+            style="text-decoration: none; margin-top: 30px; display: inline-flex; align-items: center;">
             <span>Contact Us &nbsp;</span>
             <svg viewBox="0 0 13 10" height="10px" width="15px">
                 <path d="M1,5 L11,5"></path>
                 <polyline points="8 1 12 5 8 9"></polyline>
             </svg>
         </a>
+
+        <button role="button" class="golden-button" id="studentButton">
+            <span class="golden-text"> Student & courses </span>
+        </button>
+        
+        <script>
+            document.getElementById('studentButton').addEventListener('click', () => {
+                window.location.href = '/students/add'; // Replace with the correct route
+            });
+        </script>
         
     </div>
 </body>

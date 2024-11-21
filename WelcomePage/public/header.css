@@ -30,10 +30,16 @@ header h1 {
 
 /* Navigation Menu */
 nav {
+    display: flex;
+    height: 30px;
     margin-top: 10px;
+    align-items: center;
+    vertical-align: middle;
+    
 }
 
 nav a {
+    text-align: center;
     color: #8b4513;                  /* SaddleBrown text color */
     text-decoration: none;
     font-size: 18px;

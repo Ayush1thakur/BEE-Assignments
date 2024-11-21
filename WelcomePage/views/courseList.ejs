@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/courseList.css">
+    <link rel="stylesheet" href="/header.css">
+
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <h1>Courses List</h1>
+    <ul>
+        <% courses.forEach(course => { %>
+            <li>
+                <%= course.name %>
+                <a href="/courses/edit/<%= course._id %>">Edit</a>
+                <form action="/courses/delete/<%= course._id %>" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/courses/add">Add New Course</a>
+</body>
+</html>
